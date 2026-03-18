@@ -15,5 +15,18 @@ public class Translator{
         
         return result.toString();
     }
-    
+
+    public static String DecimalTranslator(String decimalString){
+        StringBuilder result = new StringBuilder();
+        String[] decimals = decimalString.trim().split("\\s+");
+        for (int i = 0; i < decimals.length; i++) {
+            int decimal = Integer.parseInt(decimals[i]);
+            String binary = Integer.toBinaryString(decimal);            
+            while (binary.length() < 8) {
+                binary = "0" + binary;
+            }
+            result.append(binary);
+        }
+        return result.toString();
+    }
 }
