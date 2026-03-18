@@ -24,6 +24,19 @@ public class Main {
             
             Map<Character, List<Object>> tabla = Conteo.contarCaracteres(textoCompleto);
 
+            MinHeap heap = new MinHeap(tabla.size());
+
+            for (Map.Entry<Character, List<Object>> entry : tabla.entrySet()) {
+                Node n = new Node(entry.getKey(), (int) entry.getValue().get(0));
+                heap.insert(n);
+            }
+
+            while (heap.getSize() > 1) {
+                var min = heap.extractMin();
+                var nextMin = heap.extractMin();
+                Node parent = new Node( (int) (min.frequency + nextMin.frequency), min, nextMin);
+                heap.insert(parent);
+            }
 
         } catch (IOException e) {
             System.err.println("error leyendo el archivo");
