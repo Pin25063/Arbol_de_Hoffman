@@ -10,9 +10,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            List<String> lines = readFile("input.txt");
+            List<String> lines = readFile("text.txt");
             for (String line : lines) {
-                
+                System.out.println(lines.toString());
             }
         } catch (IOException e) {
             System.err.println("error leyendo el archivo");
