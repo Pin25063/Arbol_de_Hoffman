@@ -1,6 +1,6 @@
 public class Node {
     char character;
-    int frequency;
+    double frequency;
     Node left;
     Node right;
 
