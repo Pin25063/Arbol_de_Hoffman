@@ -1,14 +1,29 @@
-import java.nio.charset.StandardCharsets;
-
 public class ByteAscii {
 
     public static String toAscii() {
-        byte[] bytes = Translator.BinaryTranslator();
-        if (bytes == null) {
+
+        String numeritos = Translator.BinaryTranslator("");
+
+        if (numeritos == null || numeritos.isEmpty()) {
             return "";
         }
-        return new String(bytes, StandardCharsets.US_ASCII);
 
+
+        String[] partes = numeritos.split(" ");
+        StringBuilder resultadoReal = new StringBuilder();
+
+        for (String parte : partes) {
+
+            String limpia = parte.trim();
+
+            if (!limpia.isEmpty()) {
+
+                int codigoAscii = Integer.parseInt(limpia);
+                resultadoReal.append((char) codigoAscii);
+            }
+        }
+
+
+        return resultadoReal.toString();
     }
-
 }
