@@ -26,4 +26,27 @@ public class ByteAscii {
 
         return resultadoReal.toString();
     }
+
+    public static String fromAscii(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder numeros = new StringBuilder();
+        char[] caracteres = texto.toCharArray();
+
+        for (int i = 0; i < caracteres.length; i++) {
+            // Convertimos el carácter a su valor numérico (byte)
+            int valorAscii = (int) caracteres[i];
+
+            numeros.append(valorAscii);
+
+            // Añadimos un espacio entre números, excepto al final
+            if (i < caracteres.length - 1) {
+                numeros.append(" ");
+            }
+        }
+
+        return numeros.toString();
+    }
 }
